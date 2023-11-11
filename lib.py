@@ -24,12 +24,19 @@ def decrypt(text, key):
         decrypted_text = ''.join(map(decrypt_char, text))       
 
         return decrypted_text
+    
+def read_file(filename):
+    with open(filename, 'r') as file:
+        return file.read()
 
-text = "Hello,World!"
+def write_file(filename, text):
+    with open(filename, 'w') as file:
+        file.write(text)
+
+path = "task5/text.txt"
 key = 42
-
-encrypted_text = encrypt(text, key)
-print("Encrypted:", encrypted_text)
-
-decrypted_text = decrypt(encrypted_text, key)
-print("Decrypted:", decrypted_text)
+text = read_file(path)
+encrypted_text = encrypt(text,key)
+#decrypted_text = decrypt(text, key)
+write_file(path, encrypted_text)
+#write_file(path, decrypted_text)
